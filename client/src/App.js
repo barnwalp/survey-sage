@@ -1,9 +1,7 @@
-// import React from 'react';
-
 function App() {
   return (
     <div className="App">
-			<h1>Forms unfolded</h1>
+			<h2>Forms Unfolded</h2>
     </div>
   );
 }
