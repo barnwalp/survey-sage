@@ -17,7 +17,7 @@ const Navigation = () => {
 				<button><GrUndo /></button>
 				<button><GrRedo /></button>
 				<button><RiDeleteBin6Line /></button>
-				<button>Send</button>
+				<button className="bg-primary py-1 px-6 rounded-lg text-white text-sm font-semibold">Send</button>
 			</section>
 		</nav>
 	)
