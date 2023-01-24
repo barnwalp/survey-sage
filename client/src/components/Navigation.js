@@ -12,7 +12,7 @@ const Navigation = () => {
 				src={logo}
 				alt="logo"
 			/>
-			<section className="flex gap-4 text-xl items-center">
+			<section className="flex gap-4 text-lg items-center">
 				<h3 className="">Untitled Form</h3>
 				<button><GrUndo /></button>
 				<button><GrRedo /></button>
