@@ -1,8 +1,14 @@
 import { useState } from 'react';
+import { removeItem } from '../utilities/removeItem';
 import { RxCross2 } from 'react-icons/rx';
 
 const Inputs = () => {
 	const [checkItems, setCheckItems] = useState(['Item 1', 'Item 2']);
+
+	const handleAbort = (item) => {
+		// console.log('test');
+		console.log(item);
+	}
 
 	const checkbox = checkItems.map(item => {
 		return (
@@ -16,8 +22,12 @@ const Inputs = () => {
 					/>
 					<label for="item">{item}</label>
 				</div>
-				<button>
-					<RxCross2 className="inline-block mr-4 text-2xl p-1 hover:rounded-xl hover:bg-lightBlue"/>	
+				<button
+					onClick={() => handleAbort(item)}
+				>
+					<RxCross2 
+						className="inline-block mr-4 text-2xl p-1 hover:rounded-xl hover:bg-lightBlue"
+					/>	
 				</button>
 			</div>
 		)
