@@ -1,4 +1,5 @@
 import Inputs from './Inputs';
+// import Test from './Test';
 import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
 // import { BsTextParagraph } from 'react-icons/bs';
@@ -8,6 +9,17 @@ const QuestionCard = () => {
 	const [checkItems, setCheckItems] = useState(['Item 1', 'Item 2', 'Item 3', 'Others']);
 	const [questionText, setQuestionText] = useState('Question');
 	const [selected, setSelected] = useState('checkbox');
+	const [value, setValue] = useState('yes');
+
+	const handleValue = () => {
+		setValue(prevValue => {
+			if (prevValue === 'yes') {
+				return 'no';
+			} else {
+				return 'yes';
+			}
+		})
+	}
 
 	const handleInputChange = (event) => {
 		console.log(event.target.value);
@@ -20,10 +32,10 @@ const QuestionCard = () => {
 	}
 
 	const handleAbort = (item) => {
-		// console.log(checkItems);
+		console.log(checkItems);
 		const newCheckItems = removeItem(checkItems, item);
 		setCheckItems(newCheckItems);
-		// console.log(checkItems);
+		console.log(checkItems);
 	}
 
 	return (
@@ -54,6 +66,8 @@ const QuestionCard = () => {
 					</select>
 				</div>
 				<Inputs 
+					value={value}	
+					handleValue={handleValue}
 					checkItems={checkItems}
 					handleAbort={handleAbort}
 				/>

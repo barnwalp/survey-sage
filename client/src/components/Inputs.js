@@ -1,40 +1,48 @@
-import { useState } from 'react';
-import { removeItem } from '../utilities/removeItem';
+import { useMemo } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
-const Inputs = () => {
-	const [checkItems, setCheckItems] = useState(['Item 1', 'Item 2']);
+const Inputs = ({ value, handleValue, checkItems, handleAbort }) => {
+	console.log(`checkItems state: ${checkItems}`);
+	console.log('Test is being tested');
 
-	const handleAbort = (item) => {
-		// console.log('test');
-		console.log(item);
-	}
-
-	const checkbox = checkItems.map(item => {
-		return (
-			<div className="flex justify-between items-center w-full">
-				<div>
-					<input 
-						className="mr-2"
-						type="checkbox"
-						id={item}
-						name={item}
-					/>
-					<label for="item">{item}</label>
-				</div>
-				<button
-					onClick={() => handleAbort(item)}
+	const test = useMemo(() => {
+		const checkbox = checkItems.map(item => {
+			return (
+				<div
+					className="flex justify-between items-center w-full"
+					key={item}
 				>
-					<RxCross2 
-						className="inline-block mr-4 text-2xl p-1 hover:rounded-xl hover:bg-lightBlue"
-					/>	
-				</button>
-			</div>
-		)
-	})
+					<div>
+						<input 
+							className="mr-2"
+							type="checkbox"
+							id={item}
+							name={item}
+						/>
+						<label for="item">{item}</label>
+					</div>
+					<button
+						onClick={() => handleAbort(item)}
+					>
+						<RxCross2
+							className="inline-block mr-4 text-2xl p-1 hover:rounded-xl hover:bg-lightBlue"
+						/>
+					</button>
+				</div>
+				)
+		})
+		console.log('checkbox from useMemo');
+		console.log(checkbox);
+		return checkbox;
+	}, [checkItems, handleAbort])
+
 	return (
-		<div className="ml-4 mt-2 flex flex-col items-start">
-			{checkbox}
+			<div className="ml-4 mt-2 flex flex-col items-start">
+			{test}
+			<div>
+				<h2>{value}</h2>
+				<button onClick={handleValue}>Submit</button>
+			</div>
 		</div>
 	)
 }
