@@ -1,4 +1,4 @@
-import Inputs from './Inputs';
+import Checkbox from './Checkbox';
 // import Test from './Test';
 import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
@@ -10,6 +10,8 @@ const QuestionCard = () => {
 	const [questionText, setQuestionText] = useState('Question');
 	const [selected, setSelected] = useState('checkbox');
 	const [value, setValue] = useState('yes');
+
+	let renderedElement = <h1>Test</h1>;
 
 	const handleValue = () => {
 		setValue(prevValue => {
@@ -32,10 +34,19 @@ const QuestionCard = () => {
 	}
 
 	const handleAbort = (item) => {
-		console.log(checkItems);
+		// console.log(checkItems);
 		const newCheckItems = removeItem(checkItems, item);
 		setCheckItems(newCheckItems);
-		console.log(checkItems);
+		// console.log(checkItems);
+	}
+	
+	if (selected === 'checkbox') {
+		renderedElement = <Checkbox 
+				value={value}	
+				handleValue={handleValue}
+				checkItems={checkItems}
+				handleAbort={handleAbort}
+			/>
 	}
 
 	return (
@@ -65,12 +76,15 @@ const QuestionCard = () => {
 						<option value="time">Time</option>
 					</select>
 				</div>
+				{renderedElement}
+				{/*}
 				<Inputs 
 					value={value}	
 					handleValue={handleValue}
 					checkItems={checkItems}
 					handleAbort={handleAbort}
 				/>
+				{*/}
 			</div>
 		</>
 	)

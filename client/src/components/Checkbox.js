@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
-const Inputs = ({ value, handleValue, checkItems, handleAbort }) => {
+const Checkbox = ({ value, handleValue, checkItems, handleAbort }) => {
 	console.log(`checkItems state: ${checkItems}`);
 	console.log('Test is being tested');
 
@@ -47,4 +47,4 @@ const Inputs = ({ value, handleValue, checkItems, handleAbort }) => {
 	)
 }
 
-export default Inputs;
+export default Checkbox;
