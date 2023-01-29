@@ -8,7 +8,7 @@ import { BsEye } from 'react-icons/bs';
 import logo from '../assets/logo.png';
 
 
-const Navigation = () => {
+const Navigation = ({ title, handleTitle }) => {
 	return (
 		<nav className="flex flex-col items-center">
 			<img 
@@ -17,14 +17,19 @@ const Navigation = () => {
 				alt="logo"
 			/>
 			<section className="flex gap-4 text-lg items-center">
-				<h3 className="">Untitled Form</h3>
-				<button><GrUndo /></button>
-				<button><GrRedo /></button>
-				<button><RiDeleteBin6Line /></button>
-				<button><BsPlusCircle /></button>
-				<button><MdTitle /></button>
-				<button><RxImage /></button>
-				<button><BsEye /></button>
+				<input 
+					className="text-2xl w-40 outline-0 focus:border-b-lightBlue focus:border-b"
+					type="text"
+					value={title}
+					onChange={handleTitle}
+				/>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><GrUndo /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><GrRedo /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><RiDeleteBin6Line /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><BsPlusCircle /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><MdTitle /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><RxImage /></button>
+				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><BsEye /></button>
 				<button className="bg-primary py-1 px-6 rounded-lg text-white text-sm font-semibold">Send</button>
 			</section>
 		</nav>
