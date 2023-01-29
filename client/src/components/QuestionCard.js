@@ -1,9 +1,13 @@
 import Checkbox from './Checkbox';
-// import Test from './Test';
+import Date from './Date';
+import Dropdown from './Dropdown';
+import Linear from './Linear';
+import Multiple from './Multiple';
+import Paragraph from './Paragraph';
+import Short from './Short';
+import Time from './Time';
 import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
-// import { BsTextParagraph } from 'react-icons/bs';
-// import { RiQuestionAnswerLine } from 'react-icons/ri';
 
 const QuestionCard = () => {
 	const [checkItems, setCheckItems] = useState(['Item 1', 'Item 2', 'Item 3', 'Others']);
@@ -47,6 +51,20 @@ const QuestionCard = () => {
 				checkItems={checkItems}
 				handleAbort={handleAbort}
 			/>
+	} else if (selected === 'short') {
+			renderedElement = <Short />;
+	} else if (selected === 'paragraph') {
+			renderedElement = <Paragraph />;
+	} else if (selected === 'multiple') {
+			renderedElement = <Multiple />;
+	} else if (selected === 'dropdown') {
+			renderedElement = <Dropdown />;
+	} else if (selected === 'linear') {
+			renderedElement = <Linear />;
+	} else if (selected === 'date') {
+			renderedElement = <Date />;
+	} else if (selected === 'time') {
+			renderedElement = <Time />;
 	}
 
 	return (
@@ -77,14 +95,6 @@ const QuestionCard = () => {
 					</select>
 				</div>
 				{renderedElement}
-				{/*}
-				<Inputs 
-					value={value}	
-					handleValue={handleValue}
-					checkItems={checkItems}
-					handleAbort={handleAbort}
-				/>
-				{*/}
 			</div>
 		</>
 	)
