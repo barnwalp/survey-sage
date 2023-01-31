@@ -10,10 +10,18 @@ import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
 
 const QuestionCard = () => {
-	const [checkItems, setCheckItems] = useState(['Item 1', 'Item 2', 'Item 3', 'Others']);
+	const [value, setValue] = useState('yes');
 	const [questionText, setQuestionText] = useState('Question');
 	const [selected, setSelected] = useState('checkbox');
-	const [value, setValue] = useState('yes');
+	const [questions, setQuestions] = useState({
+		checkItems: ['Item 1', 'Item 2', 'Item 3', 'Others'],
+		answer: 'Write your answer',
+		paragraph: 'Write your paragraph',
+		multiple: ['Item 1', 'Item 2', 'Item 3'],
+		dropdown: ['Item 1', 'Item 2', 'Item 3'],
+		date: 'Month, day, Year',
+		time: 'Time',
+	})
 
 	let renderedElement = <h1>Test</h1>;
 
@@ -38,17 +46,22 @@ const QuestionCard = () => {
 	}
 
 	const handleAbort = (item) => {
-		// console.log(checkItems);
-		const newCheckItems = removeItem(checkItems, item);
-		setCheckItems(newCheckItems);
-		// console.log(checkItems);
+		console.log(questions.checkItems);
+		const newCheckItems = removeItem(questions.checkItems, item);
+		setQuestions((prevVal) => {
+			return ({
+				...prevVal,
+				checkItems: newCheckItems,
+			})
+		});
+		console.log(questions.checkItems);
 	}
 	
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox 
 				value={value}	
 				handleValue={handleValue}
-				checkItems={checkItems}
+				checkItems={questions.checkItems}
 				handleAbort={handleAbort}
 			/>
 	} else if (selected === 'short') {
