@@ -45,6 +45,17 @@ const QuestionCard = () => {
 		});
 		console.log(questions.checkItems);
 	}
+
+	const handleAnswerChange = (event) => {
+		console.log(event.target.value);
+		setQuestions((prevVal) => {
+			return ({
+				...prevVal,
+				answer: event.target.value,
+			})
+		});
+
+	}
 	
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox 
@@ -52,7 +63,10 @@ const QuestionCard = () => {
 				handleAbort={handleAbort}
 			/>
 	} else if (selected === 'short') {
-			renderedElement = <Short />;
+			renderedElement = <Short 
+					answer={questions.answer}
+					handleAnswerChange={handleAnswerChange}
+				/>;
 	} else if (selected === 'paragraph') {
 			renderedElement = <Paragraph />;
 	} else if (selected === 'multiple') {

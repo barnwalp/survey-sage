@@ -3,7 +3,6 @@ import { RxCross2 } from 'react-icons/rx';
 
 const Checkbox = ({ checkItems, handleAbort }) => {
 	console.log(`checkItems state: ${checkItems}`);
-	console.log('Test is being tested');
 
 	const checkboxItem = useMemo(() => {
 		const checkbox = checkItems.map(item => {
