@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
-const Checkbox = ({ value, handleValue, checkItems, handleAbort }) => {
+const Checkbox = ({ checkItems, handleAbort }) => {
 	console.log(`checkItems state: ${checkItems}`);
 	console.log('Test is being tested');
 
-	const test = useMemo(() => {
+	const checkboxItem = useMemo(() => {
 		const checkbox = checkItems.map(item => {
 			return (
 				<div
@@ -37,12 +37,8 @@ const Checkbox = ({ value, handleValue, checkItems, handleAbort }) => {
 	}, [checkItems, handleAbort])
 
 	return (
-			<div className="ml-4 mt-2 flex flex-col items-start">
-			{test}
-			<div>
-				<h2>{value}</h2>
-				<button onClick={handleValue}>Submit</button>
-			</div>
+		<div className="ml-4 mt-2 flex flex-col items-start">
+			{checkboxItem}
 		</div>
 	)
 }

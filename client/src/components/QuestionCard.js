@@ -10,7 +10,6 @@ import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
 
 const QuestionCard = () => {
-	const [value, setValue] = useState('yes');
 	const [questionText, setQuestionText] = useState('Question');
 	const [selected, setSelected] = useState('checkbox');
 	const [questions, setQuestions] = useState({
@@ -24,16 +23,6 @@ const QuestionCard = () => {
 	})
 
 	let renderedElement = <h1>Test</h1>;
-
-	const handleValue = () => {
-		setValue(prevValue => {
-			if (prevValue === 'yes') {
-				return 'no';
-			} else {
-				return 'yes';
-			}
-		})
-	}
 
 	const handleInputChange = (event) => {
 		console.log(event.target.value);
@@ -59,8 +48,6 @@ const QuestionCard = () => {
 	
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox 
-				value={value}	
-				handleValue={handleValue}
 				checkItems={questions.checkItems}
 				handleAbort={handleAbort}
 			/>
