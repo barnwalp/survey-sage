@@ -7,7 +7,7 @@ const Paragraph = ({ paragraph, handleParaChange }) => {
 			>
 				<div className="w-full mr-4">
 					<textarea 
-						className="w-full border-0 overflow-auto text-sm col-span-2 resize-none outline-0 border-b border-b-lightBlue font-normal mx-1 mb-3 focus:border-none"
+						className="w-full border-0 no-scrollbar overflow-auto text-sm col-span-2 resize-none outline-0 border-b border-b-lightBlue font-normal mx-1 mb-3 focus:border-none"
 						type="text"
 						value={paragraph}
 						onChange={handleParaChange}
