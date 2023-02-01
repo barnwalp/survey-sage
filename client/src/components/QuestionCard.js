@@ -54,7 +54,16 @@ const QuestionCard = () => {
 				answer: event.target.value,
 			})
 		});
+	}
 
+	const handleParaChange = (event) => {
+		console.log(event.target.value);
+		setQuestions((prevVal) => {
+			return ({
+				...prevVal,
+				paragraph: event.target.value,
+			})
+		});
 	}
 	
 	if (selected === 'checkbox') {
@@ -68,7 +77,10 @@ const QuestionCard = () => {
 					handleAnswerChange={handleAnswerChange}
 				/>;
 	} else if (selected === 'paragraph') {
-			renderedElement = <Paragraph />;
+			renderedElement = <Paragraph 
+					paragraph={questions.paragraph}
+					handleParaChange={handleParaChange}
+				/>;
 	} else if (selected === 'multiple') {
 			renderedElement = <Multiple />;
 	} else if (selected === 'dropdown') {
