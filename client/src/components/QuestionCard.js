@@ -9,18 +9,18 @@ import Time from './Time';
 import { useState } from 'react';
 import { removeItem } from '../utilities/removeItem';
 
-const QuestionCard = () => {
+const QuestionCard = ({ id, selected, value, handleChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
-	const [selected, setSelected] = useState('checkbox');
-	const [questions, setQuestions] = useState({
-		checkItems: ['Item 1', 'Item 2', 'Item 3', 'Others'],
-		answer: 'Write your answer',
-		paragraph: 'Write your paragraph',
-		multiple: ['Item 1', 'Item 2', 'Item 3'],
-		dropdown: ['Item 1', 'Item 2', 'Item 3'],
-		date: 'Month, day, Year',
-		time: 'Time',
-	})
+	// const [selected, setSelected] = useState('checkbox');
+	// const [questions, setQuestions] = useState({
+	// 	checkItems: ['Item 1', 'Item 2', 'Item 3', 'Others'],
+	// 	answer: 'Write your answer',
+	// 	paragraph: 'Write your paragraph',
+	// 	multiple: ['Item 1', 'Item 2', 'Item 3'],
+	// 	dropdown: ['Item 1', 'Item 2', 'Item 3'],
+	// 	date: 'Month, day, Year',
+	// 	time: 'Time',
+	// })
 
 	let renderedElement = <h1>Test</h1>;
 
@@ -29,57 +29,47 @@ const QuestionCard = () => {
 		setQuestionText(event.target.value);
 	}
 
-	const handleChange = (event) => {
-		console.log(event.target.value);
-		setSelected(event.target.value);
-	}
+	// const handleChange = (event) => {
+	// 	console.log(event.target.value);
+	// 	setSelected(event.target.value);
+	// }
 
-	const handleAbort = (item) => {
-		console.log(questions.checkItems);
-		const newCheckItems = removeItem(questions.checkItems, item);
-		setQuestions((prevVal) => {
-			return ({
-				...prevVal,
-				checkItems: newCheckItems,
-			})
-		});
-		console.log(questions.checkItems);
-	}
+	// const handleAbort = (item) => {
+	// 	console.log(questions.checkItems);
+	// 	const newCheckItems = removeItem(questions.checkItems, item);
+	// 	setQuestions((prevVal) => {
+	// 		return ({
+	// 			...prevVal,
+	// 			checkItems: newCheckItems,
+	// 		})
+	// 	});
+	// 	console.log(questions.checkItems);
+	// }
 
-	const handleAnswerChange = (event) => {
-		console.log(event.target.value);
-		setQuestions((prevVal) => {
-			return ({
-				...prevVal,
-				answer: event.target.value,
-			})
-		});
-	}
-
-	const handleParaChange = (event) => {
-		console.log(event.target.value);
-		setQuestions((prevVal) => {
-			return ({
-				...prevVal,
-				paragraph: event.target.value,
-			})
-		});
-	}
+	// const handleParaChange = (event) => {
+	// 	console.log(event.target.value);
+	// 	setQuestions((prevVal) => {
+	// 		return ({
+	// 			...prevVal,
+	// 			paragraph: event.target.value,
+	// 		})
+	// 	});
+	// }
 	
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox 
-				checkItems={questions.checkItems}
-				handleAbort={handleAbort}
+				checkItems={value}
+				// handleAbort={handleAbort}
 			/>
 	} else if (selected === 'short') {
 			renderedElement = <Short 
-					answer={questions.answer}
-					handleAnswerChange={handleAnswerChange}
+					answer={value}
+					handleAnswerChange={handleChange(id)}
 				/>;
 	} else if (selected === 'paragraph') {
 			renderedElement = <Paragraph 
-					paragraph={questions.paragraph}
-					handleParaChange={handleParaChange}
+					paragraph={value}
+					// handleParaChange={handleParaChange}
 				/>;
 	} else if (selected === 'multiple') {
 			renderedElement = <Multiple />;
@@ -108,7 +98,7 @@ const QuestionCard = () => {
 						id="question" 
 						name="question"
 						value={selected}
-						onChange={handleChange}
+						onChange={handleSelectChange}
 					>
 						<option value="short">Short Answer</option>
 						<option value="paragraph">Paragraph</option>
