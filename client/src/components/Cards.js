@@ -9,8 +9,8 @@ const Cards = ({ title, handleTitle }) => {
 		// 	value: ['Item 1, Item 2', 'Item 3', 'Other']
 		// },
 		{
-			input: 'short',
 			id: 'short1',
+			input: 'short',
 			value: 'Write your answer '
 		},
 		// {
@@ -23,8 +23,8 @@ const Cards = ({ title, handleTitle }) => {
 		console.log(event.target.value);
 	}
 
-	const handleAnswerChange = (event) => {
-		console.log(event.target.value);
+	const handleChange = (event) => {
+		console.log(event);
 		setQuestionData((prevVal) => {
 			return ({
 				...prevVal,
@@ -34,15 +34,18 @@ const Cards = ({ title, handleTitle }) => {
 	}
 
 	const questionCards = questionData.map(item => {
-		<QuestionCard
-			selected={item.input}
-			value={item.value}
-			handleChange={handleSelectChange}
-		/>
+		return (
+			<QuestionCard
+				id={item.id}
+				selected={item.input}
+				value={item.value}
+				handleSelectChange={handleSelectChange}
+			/>
+		)
 	})
 	return (
 		<div className="bg-lightBlue h-screen mt-4 p-4 flex flex-col items-center gap-4">
-			<HeadingCard	
+			<HeadingCard
 				title={title}
 				handleTitle={handleTitle}
 			/>

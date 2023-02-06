@@ -10,8 +10,8 @@ export default function App() {
 		setTitle(event.target.value);
 	}
 
-  return (
-    <div className="App">
+	return (
+		<div className="App">
 			<Navigation
 				title={title}
 				handleTitle={handleTitle}
@@ -20,6 +20,6 @@ export default function App() {
 				title={title}
 				handleTitle={handleTitle}
 			/>
-    </div>
-  );
+		</div>
+	);
 }
