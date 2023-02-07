@@ -1,6 +1,6 @@
 import TextareaAutosize from 'react-textarea-autosize';
 
-const Paragraph = ({ paragraph, handleParaChange }) => {
+const Paragraph = ({ paragraph, handleAnswerChange }) => {
 	return (
 		<div className="ml-4 mt-2 flex flex-col items-start">
 			<div
@@ -11,7 +11,7 @@ const Paragraph = ({ paragraph, handleParaChange }) => {
 					<TextareaAutosize 
 						className="w-full border-0 no-scrollbar overflow-auto text-sm resize-none outline-0 border-b border-b-lightBlue font-normal mx-1 mb-3"
 						value={paragraph}
-						onChange={handleParaChange}
+						onChange={handleAnswerChange}
 						name="text"
 					/>
 				</div>

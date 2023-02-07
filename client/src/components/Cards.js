@@ -13,7 +13,12 @@ const Cards = ({ title, handleTitle }) => {
 			id: 'paragraph1',
 			input: 'paragraph',
 			value: 'Write your paragraph',
-		}
+		},
+		// {
+		// 	id: 'checkbox1',
+		// 	input: 'checkbox',
+		// 	value: ['Item 1', 'Item 2', 'Item 3', 'Other']
+		// },
 	])
 
 	const handleSelectChange = (event) => {
@@ -33,24 +38,13 @@ const Cards = ({ title, handleTitle }) => {
 				return question;
 			}
 		})
-
 		setQuestionData(nextQuestionData);
-			// console.log(prevArr);
-			// const index = prevArr.findIndex(item => item.id === id);
-			// console.log(index);
-			// prevArr[index].value = event.target.value;
-			// console.log(prevArr);
-			// test	
-			// return ({
-			// 	...prevObj,
-			// 	answer: event.target.value,
-			// })
-		// });
 	}
 
 	const questionCards = questionData.map(item => {
 		return (
 			<QuestionCard
+				key={item.id}
 				id={item.id}
 				selected={item.input}
 				answer={item.value}

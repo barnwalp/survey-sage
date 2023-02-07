@@ -11,7 +11,6 @@ import { useState } from 'react';
 
 const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
-	// const [selected, setSelected] = useState('checkbox');
 	// const [questions, setQuestions] = useState({
 	// 	checkItems: ['Item 1', 'Item 2', 'Item 3', 'Others'],
 	// 	answer: 'Write your answer',
@@ -69,7 +68,7 @@ const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange
 	} else if (selected === 'paragraph') {
 		renderedElement = <Paragraph
 			paragraph={answer}
-		// handleParaChange={handleParaChange}
+			handleAnswerChange={handleAnswerChange}
 		/>;
 	} else if (selected === 'multiple') {
 		renderedElement = <Multiple />;
