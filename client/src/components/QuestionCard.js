@@ -11,15 +11,6 @@ import { useState } from 'react';
 
 const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
-	// const [questions, setQuestions] = useState({
-	// 	checkItems: ['Item 1', 'Item 2', 'Item 3', 'Others'],
-	// 	answer: 'Write your answer',
-	// 	paragraph: 'Write your paragraph',
-	// 	multiple: ['Item 1', 'Item 2', 'Item 3'],
-	// 	dropdown: ['Item 1', 'Item 2', 'Item 3'],
-	// 	date: 'Month, day, Year',
-	// 	time: 'Time',
-	// })
 
 	let renderedElement = <h1>Test</h1>;
 
@@ -27,11 +18,6 @@ const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange
 		console.log(event.target.value);
 		setQuestionText(event.target.value);
 	}
-
-	// const handleChange = (event) => {
-	// 	console.log(event.target.value);
-	// 	setSelected(event.target.value);
-	// }
 
 	// const handleAbort = (item) => {
 	// 	console.log(questions.checkItems);
@@ -43,16 +29,6 @@ const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange
 	// 		})
 	// 	});
 	// 	console.log(questions.checkItems);
-	// }
-
-	// const handleParaChange = (event) => {
-	// 	console.log(event.target.value);
-	// 	setQuestions((prevVal) => {
-	// 		return ({
-	// 			...prevVal,
-	// 			paragraph: event.target.value,
-	// 		})
-	// 	});
 	// }
 
 	if (selected === 'checkbox') {

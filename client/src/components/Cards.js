@@ -19,6 +19,26 @@ const Cards = ({ title, handleTitle }) => {
 		// 	input: 'checkbox',
 		// 	value: ['Item 1', 'Item 2', 'Item 3', 'Other']
 		// },
+		// {
+		// 	id: 'multiple1',
+		// 	input: 'multiple',
+		// 	value: ['Item 1', 'Item 2', 'Item 3'],
+		// },
+		// {
+		// 	id: 'dropdown1',
+		// 	input: 'dropdown',
+		// 	value: ['Item 1', 'Item 2', 'Item 3'],
+		// },
+		// {
+		// 	id: 'date',
+		// 	input: 'date',
+		// 	value: 'Day, Month, Year'
+		// },
+		// {
+		// 	id: 'time1',
+		// 	input: 'time',
+		// 	value: 'Time',
+		// },
 	])
 
 	const handleSelectChange = (event) => {
