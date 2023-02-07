@@ -3,50 +3,63 @@ import HeadingCard from './HeadingCard';
 import QuestionCard from './QuestionCard';
 
 const Cards = ({ title, handleTitle }) => {
+	let count = 100;
 	const [questionData, setQuestionData] = useState([
 		{
-			id: 'short1',
+			id: count++,
 			input: 'short',
 			value: 'Write your answer',
 		},
 		{
-			id: 'paragraph1',
+			id: count++,
 			input: 'paragraph',
 			value: 'Write your paragraph',
 		},
 		// {
-		// 	id: 'checkbox1',
+		//	id: count++,
 		// 	input: 'checkbox',
 		// 	value: ['Item 1', 'Item 2', 'Item 3', 'Other']
 		// },
 		// {
-		// 	id: 'multiple1',
+		//	id: count++,
 		// 	input: 'multiple',
 		// 	value: ['Item 1', 'Item 2', 'Item 3'],
 		// },
 		// {
-		// 	id: 'dropdown1',
+		//	id: count++,
 		// 	input: 'dropdown',
 		// 	value: ['Item 1', 'Item 2', 'Item 3'],
 		// },
 		// {
-		// 	id: 'date',
+		//	id: count++,
 		// 	input: 'date',
 		// 	value: 'Day, Month, Year'
 		// },
 		// {
-		// 	id: 'time1',
+		//	id: count++,
 		// 	input: 'time',
 		// 	value: 'Time',
 		// },
 	])
 
-	const handleSelectChange = (event) => {
+	const handleSelectChange = (event, item) => {
 		console.log(event.target.value);
+		console.log(item);
+		const nextQuestionData = questionData.map(question => {
+			if (question.id === item.id) {
+				return ({
+					...question,
+					input: event.target.value,
+				})
+			} else {
+				return question;
+			}
+		})
+		setQuestionData(nextQuestionData);
 	}
 
 	const handleAnswerChange = (event, item) => {
-		// console.log(item);
+		console.log(item);
 		console.log(event.target.value);
 		const nextQuestionData = questionData.map(question => {
 			if (question.id === item.id) {
@@ -65,11 +78,10 @@ const Cards = ({ title, handleTitle }) => {
 		return (
 			<QuestionCard
 				key={item.id}
-				id={item.id}
 				selected={item.input}
 				answer={item.value}
 				handleAnswerChange={(event) => handleAnswerChange(event, item)}
-				handleSelectChange={handleSelectChange}
+				handleSelectChange={(event) => handleSelectChange(event, item)}
 			/>
 		)
 	})
