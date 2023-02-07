@@ -9,7 +9,7 @@ import Time from './Time';
 import { useState } from 'react';
 // import { removeItem } from '../utilities/removeItem';
 
-const QuestionCard = ({ id, selected, value, handleSelectChange }) => {
+const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
 	// const [selected, setSelected] = useState('checkbox');
 	// const [questions, setQuestions] = useState({
@@ -58,17 +58,17 @@ const QuestionCard = ({ id, selected, value, handleSelectChange }) => {
 
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox
-			checkItems={value}
+			checkItems={answer}
 		// handleAbort={handleAbort}
 		/>
 	} else if (selected === 'short') {
 		renderedElement = <Short
-			answer={value}
-			// handleChange={handleChange(id)}
+			answer={answer}
+			handleAnswerChange={handleAnswerChange}
 		/>;
 	} else if (selected === 'paragraph') {
 		renderedElement = <Paragraph
-			paragraph={value}
+			paragraph={answer}
 		// handleParaChange={handleParaChange}
 		/>;
 	} else if (selected === 'multiple') {
