@@ -6,13 +6,16 @@ import Multiple from './Multiple';
 import Paragraph from './Paragraph';
 import Short from './Short';
 import Time from './Time';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import PreviewContext from './../context/previewContext';
 // import { removeItem } from '../utilities/removeItem';
 
 const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
 
 	let renderedElement = <h1>Test</h1>;
+	const test = useContext(PreviewContext);
+	console.log(test.name);	
 
 	const handleInputChange = (event) => {
 		console.log(event.target.value);

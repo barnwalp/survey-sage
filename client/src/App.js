@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from './components/Navigation';
 import Cards from './components/Cards';
+import PreviewState from './context/previewState';
 
 export default function App() {
 	const [title, setTitle] = useState('Untitled Form');
@@ -12,14 +13,16 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<Navigation
-				title={title}
-				handleTitle={handleTitle}
-			/>
-			<Cards 
-				title={title}
-				handleTitle={handleTitle}
-			/>
+			<PreviewState>
+				<Navigation
+					title={title}
+					handleTitle={handleTitle}
+				/>
+				<Cards 
+					title={title}
+					handleTitle={handleTitle}
+				/>
+			</PreviewState>
 		</div>
-	);
+  );
 }
