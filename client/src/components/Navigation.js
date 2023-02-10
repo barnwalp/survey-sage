@@ -5,10 +5,16 @@ import { BsPlusCircle } from 'react-icons/bs';
 import { MdTitle } from 'react-icons/md';
 import { RxImage } from 'react-icons/rx';
 import { BsEye } from 'react-icons/bs';
+import { AiOutlineEdit } from 'react-icons/ai';
 import logo from '../assets/logo.png';
+import PreviewContext from './../context/previewContext';
+import { useContext } from 'react';
 
 
 const Navigation = ({ title, handleTitle }) => {
+	const btnPreview = useContext(PreviewContext);
+	console.log(btnPreview.preview);
+
 	return (
 		<nav className="flex flex-col items-center">
 			<img 
@@ -29,7 +35,12 @@ const Navigation = ({ title, handleTitle }) => {
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><BsPlusCircle /></button>
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><MdTitle /></button>
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><RxImage /></button>
-				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><BsEye /></button>
+				<button 
+					className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"
+					onClick={btnPreview.togglePreview}
+				>
+					{btnPreview.preview ? <BsEye /> : <AiOutlineEdit />}
+				</button>
 				<button className="bg-primary py-1 px-6 rounded-lg text-white text-sm font-semibold">Send</button>
 			</section>
 		</nav>

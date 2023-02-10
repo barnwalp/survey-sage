@@ -2,12 +2,10 @@ import PreviewContext from './previewContext';
 import { useState } from "react";
 
 const PreviewState = (props) => {
-	const [preview, setPreview] = useState({
-		disabled: true,
-	});
+	const [preview, setPreview] = useState(false)
 
 	const togglePreview = () => {
-		setPreview(( curPreview ) => !curPreview);
+		setPreview(curPreview => !curPreview);
 	}
 
 	return (

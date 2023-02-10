@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 const Paragraph = ({ paragraph, handleAnswerChange }) => {
 	const btnPreview = useContext(PreviewContext);
-	console.log(btnPreview.preview.disabled);
+	console.log(btnPreview.preview);
 
 	return (
 		<div className="ml-4 mt-2 flex flex-col items-start">
@@ -17,7 +17,7 @@ const Paragraph = ({ paragraph, handleAnswerChange }) => {
 						className="w-full border-0 no-scrollbar overflow-auto text-sm resize-none outline-0 border-b border-b-lightBlue font-normal mx-1 mb-3"
 						value={paragraph}
 						onChange={handleAnswerChange}
-						disabled={btnPreview.preview.disabled ? "disabled" : ""}
+						disabled={btnPreview.preview ? "disabled" : ""}
 						name="text"
 					/>
 				</div>
