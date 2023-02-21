@@ -1,3 +1,8 @@
+import { useContext } from 'react';
+
+import logo from '../assets/logo.png';
+import PreviewContext from './../context/previewContext';
+
 import { GrUndo } from 'react-icons/gr';
 import { GrRedo } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -6,9 +11,6 @@ import { MdTitle } from 'react-icons/md';
 import { RxImage } from 'react-icons/rx';
 import { BsEye } from 'react-icons/bs';
 import { AiOutlineEdit } from 'react-icons/ai';
-import logo from '../assets/logo.png';
-import PreviewContext from './../context/previewContext';
-import { useContext } from 'react';
 
 
 const Navigation = ({ title, handleTitle }) => {

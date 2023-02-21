@@ -13,7 +13,7 @@ const Short = ({ answer, handleAnswerChange }) => {
 						className="text-sm col-span-2 outline-0 border-b border-b-lightBlue font-normal ml-1 mb-3 focus:border-none"
 						type="text"
 						value={answer}
-						disabled={btnPreview.preview ? "disabled" : ""}
+						disabled={btnPreview.preview ? "" : "disabled"}
 						onChange={handleAnswerChange}
 					/>
 				</div>

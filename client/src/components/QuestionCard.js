@@ -6,11 +6,13 @@ import Multiple from './Multiple';
 import Paragraph from './Paragraph';
 import Short from './Short';
 import Time from './Time';
-import { useState } from 'react';
+import PreviewContext from './../context/previewContext';
+import { useState, useContext } from 'react';
 // import { removeItem } from '../utilities/removeItem';
 
 const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
+	const btnPreview = useContext(PreviewContext);
 
 	let renderedElement = <h1>Test</h1>;
 
@@ -74,6 +76,7 @@ const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange
 						name="question"
 						value={selected}
 						onChange={handleSelectChange}
+						disabled={btnPreview.preview ? "disabled" : ""}
 					>
 						<option value="short">Short Answer</option>
 						<option value="paragraph">Paragraph</option>
