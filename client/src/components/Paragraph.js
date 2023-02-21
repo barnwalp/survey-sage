@@ -1,6 +1,7 @@
+import { useContext } from 'react';
+
 import TextareaAutosize from 'react-textarea-autosize';
 import PreviewContext from './../context/previewContext';
-import { useContext } from 'react';
 
 const Paragraph = ({ paragraph, handleAnswerChange }) => {
 	const btnPreview = useContext(PreviewContext);

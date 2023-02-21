@@ -44,7 +44,7 @@ const Cards = ({ title, handleTitle }) => {
 			<QuestionCard
 				key={item.id}
 				selected={item.input}
-				answer={item.value}
+				value={item.value}
 				handleAnswerChange={(event) => handleAnswerChange(event, item)}
 				handleSelectChange={(event) => handleSelectChange(event, item)}
 			/>

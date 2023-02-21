@@ -1,3 +1,5 @@
+import { useState, useContext } from 'react';
+
 import Checkbox from './Checkbox';
 import Date from './Date';
 import Dropdown from './Dropdown';
@@ -7,10 +9,8 @@ import Paragraph from './Paragraph';
 import Short from './Short';
 import Time from './Time';
 import PreviewContext from './../context/previewContext';
-import { useState, useContext } from 'react';
-// import { removeItem } from '../utilities/removeItem';
 
-const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange }) => {
+const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
 	const btnPreview = useContext(PreviewContext);
 
@@ -21,31 +21,18 @@ const QuestionCard = ({ selected, answer, handleAnswerChange, handleSelectChange
 		setQuestionText(event.target.value);
 	}
 
-	// const handleAbort = (item) => {
-	// 	console.log(questions.checkItems);
-	// 	const newCheckItems = removeItem(questions.checkItems, item);
-	// 	setQuestions((prevVal) => {
-	// 		return ({
-	// 			...prevVal,
-	// 			checkItems: newCheckItems,
-	// 		})
-	// 	});
-	// 	console.log(questions.checkItems);
-	// }
-
 	if (selected === 'checkbox') {
 		renderedElement = <Checkbox
-			checkItems={answer}
-		// handleAbort={handleAbort}
+			checkItems={value}
 		/>
 	} else if (selected === 'short') {
 		renderedElement = <Short
-			answer={answer}
+			value={value}
 			handleAnswerChange={handleAnswerChange}
 		/>;
 	} else if (selected === 'paragraph') {
 		renderedElement = <Paragraph
-			paragraph={answer}
+			paragraph={value}
 			handleAnswerChange={handleAnswerChange}
 		/>;
 	} else if (selected === 'multiple') {
