@@ -1,46 +1,11 @@
 import { useState } from 'react';
+
+import questions from '../model/questions';
 import HeadingCard from './HeadingCard';
 import QuestionCard from './QuestionCard';
 
 const Cards = ({ title, handleTitle }) => {
-	let count = 100;
-	const [questionData, setQuestionData] = useState([
-		{
-			id: count++,
-			input: 'short',
-			value: 'Write your answer',
-		},
-		{
-			id: count++,
-			input: 'paragraph',
-			value: 'Write your paragraph',
-		},
-		// {
-		//	id: count++,
-		// 	input: 'checkbox',
-		// 	value: ['Item 1', 'Item 2', 'Item 3', 'Other']
-		// },
-		// {
-		//	id: count++,
-		// 	input: 'multiple',
-		// 	value: ['Item 1', 'Item 2', 'Item 3'],
-		// },
-		// {
-		//	id: count++,
-		// 	input: 'dropdown',
-		// 	value: ['Item 1', 'Item 2', 'Item 3'],
-		// },
-		// {
-		//	id: count++,
-		// 	input: 'date',
-		// 	value: 'Day, Month, Year'
-		// },
-		// {
-		//	id: count++,
-		// 	input: 'time',
-		// 	value: 'Time',
-		// },
-	])
+	const [questionData, setQuestionData] = useState(questions);
 
 	const handleSelectChange = (event, item) => {
 		console.log(event.target.value);
