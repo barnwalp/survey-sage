@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import logo from '../assets/logo.png';
-import PreviewContext from './../context/previewContext';
+import logo from '../../assets/logo.png';
+import PreviewContext from '../../context/previewContext';
 
 import { GrUndo } from 'react-icons/gr';
 import { GrRedo } from 'react-icons/gr';

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import PreviewContext from './../context/previewContext';
+import PreviewContext from '../../context/previewContext';
 
 const Short = ({ value, handleAnswerChange }) => {
 	const btnPreview = useContext(PreviewContext);

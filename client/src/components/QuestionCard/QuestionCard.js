@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 
-import Checkbox from './Checkbox';
-import Date from './Date';
-import Dropdown from './Dropdown';
-import Linear from './Linear';
-import Multiple from './Multiple';
-import Paragraph from './Paragraph';
-import Short from './Short';
-import Time from './Time';
-import PreviewContext from './../context/previewContext';
+import Checkbox from '../Checkbox/Checkbox';
+import Date from '../Date/Date';
+import Dropdown from '../Dropdown/Dropdown';
+import Linear from '../Linear/Linear';
+import Multiple from '../Multiple/Multiple';
+import Paragraph from '../Paragraph/Paragraph';
+import Short from '../Short/Short';
+import Time from '../Time/Time';
+import PreviewContext from '../../context/previewContext';
 
 const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
