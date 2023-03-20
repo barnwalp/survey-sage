@@ -3,6 +3,7 @@ import { useState } from 'react';
 import questions from '../../model/questions';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
+import Counter from '../Counter/Counter';
 
 const Cards = ({ title, handleTitle }) => {
 	const [questionData, setQuestionData] = useState(questions);
@@ -57,6 +58,7 @@ const Cards = ({ title, handleTitle }) => {
 				handleTitle={handleTitle}
 			/>
 			{questionCards}
+			<Counter />
 		</div>
 	)
 }
