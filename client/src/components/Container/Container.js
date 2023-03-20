@@ -5,7 +5,7 @@ import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
 import Counter from '../Counter/Counter';
 
-const Cards = ({ title, handleTitle }) => {
+const Cards = () => {
 	const [questionData, setQuestionData] = useState(questions);
 
 	const handleSelectChange = (event, item) => {
@@ -53,10 +53,7 @@ const Cards = ({ title, handleTitle }) => {
 	})
 	return (
 		<div className="bg-lightBlue h-screen mt-4 p-4 flex flex-col items-center gap-4">
-			<HeadingCard
-				title={title}
-				handleTitle={handleTitle}
-			/>
+			<HeadingCard />
 			{questionCards}
 			<Counter />
 		</div>

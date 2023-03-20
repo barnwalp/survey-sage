@@ -1,7 +1,9 @@
 import { useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../assets/logo.png';
 import PreviewContext from '../../context/previewContext';
+import { handleTitle } from '../../redux/titleSlice';
 
 import { GrUndo } from 'react-icons/gr';
 import { GrRedo } from 'react-icons/gr';
@@ -13,9 +15,12 @@ import { BsEye } from 'react-icons/bs';
 import { AiOutlineEdit } from 'react-icons/ai';
 
 
-const Navigation = ({ title, handleTitle }) => {
+const Navigation = () => {
 	const btnPreview = useContext(PreviewContext);
 	console.log(btnPreview.preview);
+
+	const title = useSelector(state => state.title.title)
+	const dispatch = useDispatch();
 
 	return (
 		<nav className="flex flex-col items-center">
@@ -29,7 +34,7 @@ const Navigation = ({ title, handleTitle }) => {
 					className="text-2xl w-40 outline-0 focus:border-b-lightBlue focus:border-b"
 					type="text"
 					value={title}
-					onChange={handleTitle}
+					onChange={(e) => dispatch(handleTitle(e.target.value))}
 				/>
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><GrUndo /></button>
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><GrRedo /></button>
