@@ -1,11 +1,9 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 import TextareaAutosize from 'react-textarea-autosize';
-import PreviewContext from '../../context/previewContext';
 
 const Paragraph = ({ paragraph, handleAnswerChange }) => {
-	const btnPreview = useContext(PreviewContext);
-	console.log(btnPreview.preview);
+	const btnPreview = useSelector(state => state.preview.preview);
 
 	return (
 		<div className="ml-4 mt-2 flex flex-col items-start">
@@ -18,7 +16,7 @@ const Paragraph = ({ paragraph, handleAnswerChange }) => {
 						className="w-full border-0 no-scrollbar overflow-auto text-sm resize-none outline-0 border-b border-b-lightBlue font-normal mx-1 mb-3"
 						value={paragraph}
 						onChange={handleAnswerChange}
-						disabled={btnPreview.preview ? "" : "disabled"}
+						disabled={btnPreview ? "" : "disabled"}
 						name="text"
 					/>
 				</div>

@@ -1,10 +1,8 @@
 import { useContext } from 'react';
-
-import PreviewContext from '../../context/previewContext';
+import { useSelector } from 'react-redux';
 
 const Short = ({ value, handleAnswerChange }) => {
-	const btnPreview = useContext(PreviewContext);
-	console.log(btnPreview.preview);	
+	const btnPreview = useSelector(state => state.preview.preview);
 	
 	return (
 		<div className="ml-4 mt-2 flex flex-col items-start">
@@ -14,7 +12,7 @@ const Short = ({ value, handleAnswerChange }) => {
 						className="text-sm col-span-2 outline-0 border-b border-b-lightBlue font-normal ml-1 mb-3 focus:border-none"
 						type="text"
 						value={value}
-						disabled={btnPreview.preview ? "" : "disabled"}
+						disabled={btnPreview ? "" : "disabled"}
 						onChange={handleAnswerChange}
 					/>
 				</div>

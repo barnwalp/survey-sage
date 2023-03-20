@@ -16,3 +16,6 @@ const PreviewState = (props) => {
 }
 
 export default PreviewState;
+
+// This previewState is wrapped around the component that need
+// to share the context

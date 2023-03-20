@@ -1,9 +1,8 @@
-import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import logo from '../../assets/logo.png';
-import PreviewContext from '../../context/previewContext';
 import { handleTitle } from '../../redux/titleSlice';
+import { togglePreview } from '../../redux/previewSlice';
 
 import { GrUndo } from 'react-icons/gr';
 import { GrRedo } from 'react-icons/gr';
@@ -16,11 +15,10 @@ import { AiOutlineEdit } from 'react-icons/ai';
 
 
 const Navigation = () => {
-	const btnPreview = useContext(PreviewContext);
-	console.log(btnPreview.preview);
-
+	const btnPreview = useSelector(state => state.preview.preview);
 	const title = useSelector(state => state.title.title)
 	const dispatch = useDispatch();
+
 
 	return (
 		<nav className="flex flex-col items-center">
@@ -44,9 +42,9 @@ const Navigation = () => {
 				<button className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"><RxImage /></button>
 				<button 
 					className="p-1 text-2xl hover:rounded-2xl hover:bg-lightBlue"
-					onClick={btnPreview.togglePreview}
+					onClick={() => dispatch(togglePreview())}
 				>
-					{btnPreview.preview ? <BsEye /> : <AiOutlineEdit />}
+					{btnPreview ? <BsEye /> : <AiOutlineEdit />}
 				</button>
 				<button className="bg-primary py-1 px-6 rounded-lg text-white text-sm font-semibold">Send</button>
 			</section>

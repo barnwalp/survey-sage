@@ -1,4 +1,5 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Checkbox from '../Checkbox/Checkbox';
 import Date from '../Date/Date';
@@ -8,11 +9,10 @@ import Multiple from '../Multiple/Multiple';
 import Paragraph from '../Paragraph/Paragraph';
 import Short from '../Short/Short';
 import Time from '../Time/Time';
-import PreviewContext from '../../context/previewContext';
 
 const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange }) => {
 	const [questionText, setQuestionText] = useState('Question');
-	const btnPreview = useContext(PreviewContext);
+	const btnPreview = useSelector(state => state.preview.preview);
 
 	let renderedElement = <h1>Test</h1>;
 
@@ -63,7 +63,7 @@ const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange 
 						name="question"
 						value={selected}
 						onChange={handleSelectChange}
-						disabled={btnPreview.preview ? "disabled" : ""}
+						disabled={btnPreview ? "disabled" : ""}
 					>
 						<option value="short">Short Answer</option>
 						<option value="paragraph">Paragraph</option>
