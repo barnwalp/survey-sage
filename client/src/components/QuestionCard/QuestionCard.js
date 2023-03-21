@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Checkbox from '../Checkbox/Checkbox';
 import Date from '../Date/Date';
@@ -10,7 +10,10 @@ import Paragraph from '../Paragraph/Paragraph';
 import Short from '../Short/Short';
 import Time from '../Time/Time';
 
-const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange }) => {
+import { handleDropdown } from '../../redux/categorySlice';
+
+const QuestionCard = ({ selected, value, handleAnswerChange }) => {
+	const dispatch = useDispatch();
 	const [questionText, setQuestionText] = useState('Question');
 	const btnPreview = useSelector(state => state.preview.preview);
 
@@ -62,7 +65,7 @@ const QuestionCard = ({ selected, value, handleAnswerChange, handleSelectChange 
 						id="question"
 						name="question"
 						value={selected}
-						onChange={handleSelectChange}
+						onChange={(e) => dispatch(handleDropdown(e))}
 						disabled={btnPreview ? "disabled" : ""}
 					>
 						<option value="short">Short Answer</option>

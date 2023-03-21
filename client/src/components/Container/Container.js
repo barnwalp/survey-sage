@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import questions from '../../model/questions';
+import { handleDropdown } from '../../redux/categorySlice';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
 import Counter from '../Counter/Counter';
@@ -47,7 +48,6 @@ const Cards = () => {
 				selected={item.input}
 				value={item.value}
 				handleAnswerChange={(event) => handleAnswerChange(event, item)}
-				handleSelectChange={(event) => handleSelectChange(event, item)}
 			/>
 		)
 	})
