@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import questions from '../../model/questions';
-import { handleDropdown } from '../../redux/categorySlice';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
 import Counter from '../Counter/Counter';
@@ -9,21 +8,21 @@ import Counter from '../Counter/Counter';
 const Cards = () => {
 	const [questionData, setQuestionData] = useState(questions);
 
-	const handleSelectChange = (event, item) => {
-		console.log(event.target.value);
-		console.log(item);
-		const nextQuestionData = questionData.map(question => {
-			if (question.id === item.id) {
-				return ({
-					...question,
-					input: event.target.value,
-				})
-			} else {
-				return question;
-			}
-		})
-		setQuestionData(nextQuestionData);
-	}
+	// const handleSelectChange = (event, item) => {
+	// 	console.log(event.target.value);
+	// 	console.log(item);
+	// 	const nextQuestionData = questionData.map(question => {
+	// 		if (question.id === item.id) {
+	// 			return ({
+	// 				...question,
+	// 				input: event.target.value,
+	// 			})
+	// 		} else {
+	// 			return question;
+	// 		}
+	// 	})
+	// 	setQuestionData(nextQuestionData);
+	// }
 
 	const handleAnswerChange = (event, item) => {
 		console.log(item);
