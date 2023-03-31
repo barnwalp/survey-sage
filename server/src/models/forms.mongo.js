@@ -1,22 +1,21 @@
-const mongoose = require('mongoose');
+const formDb = require('./forms.models');
 
-const formSchema = new mongoose.Schema({
-	id: {
-		type: Number,
-		required: true,
-	},
-	input: {
-		type: String,
-		required: true,
-	},
-	value: {
-		type: [ String ],
-		required: true
-	},
-	answer: {
-		type: String,
-		required: true,
-	},
-})
+async function saveDataDb(forms) {
+	try {
+		forms.map(async (form) => {
+			console.log(form);
+			await formDb.updateOne({
+				id: form.id,
+			}, form, {
+				upsert: true,
+			})
+		})
+	} catch(e) {
+		console.log(e);
+		return e;
+	}
+}
 
-module.exports = mongoose.model('Form', formSchema);
+module.exports = {
+	saveDataDb,
+}

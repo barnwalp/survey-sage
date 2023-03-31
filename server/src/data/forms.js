@@ -34,13 +34,13 @@ const forms = [
 	{
 		id: count++,
 	 	input: 'date',
-	 	value: 'Day, Month, Year',
+	 	value: ['Day, Month, Year'],
 		answer: '',
 	},
 	{
 		id: count++,
 	 	input: 'time',
-	 	value: 'Time',
+	 	value: ['Time'],
 		answer: '',
 	},
 ]
