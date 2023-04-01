@@ -1,12 +1,19 @@
 import { useState } from 'react';
 
+import Counter from '../Counter/Counter';
 import questions from '../../model/questions';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
-import Counter from '../Counter/Counter';
+import { httpGetForms } from '../../request';
 
 const Cards = () => {
 	const [questionData, setQuestionData] = useState(questions);
+	httpGetForms()
+		.then(data => {
+			console.log('data is: ');
+			console.log(data);
+		})
+		.catch(e => console.log(e));
 
 	// const handleSelectChange = (event, item) => {
 	// 	console.log(event.target.value);
