@@ -1,6 +1,6 @@
 const formDb = require('./forms.models');
 
-async function saveDataDb(forms) {
+const saveDataDb = async(forms) => {
 	try {
 		forms.map(async (form) => {
 			console.log(form);
@@ -16,6 +16,17 @@ async function saveDataDb(forms) {
 	}
 }
 
+const getFormsDb = async() => {
+	try {
+		const forms = await formDb.find({})
+		console.log(forms);
+		return forms;
+	} catch(e) {
+		console.log(e);
+	}
+}
+
 module.exports = {
 	saveDataDb,
+	getFormsDb,
 }

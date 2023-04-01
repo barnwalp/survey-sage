@@ -1,6 +1,9 @@
+const cors = require('cors');
+const morgan = require('morgan');
 const express = require('express');
 const mongoose = require('mongoose');
 
+const formsRouter = require('./controllers/forms.router');
 const { forms } = require('./data/forms');
 const { readPassword } = require('./readFile');
 const { saveDataDb } = require('./models/forms.mongo');
@@ -9,8 +12,20 @@ const { saveDataDb } = require('./models/forms.mongo');
 const PORT = process.env.PORT || 7000;
 const app = express();
 
-// middleware
+// cors is needed so that app can access sites outside of its domain
+app.use(cors({
+	origin: 'http://localhost:3000',
+}))
+// middleware for logging
+app.use(morgan('combined'));
+app.use((req, _, next) => {
+	const start = Date.now();
+	next();
+	const delta = Date.now() - start;
+	console.log(`${req.method} -> ${req.url} -> ${delta}ms`);
+})
 app.use(express.json());
+app.use('/', formsRouter);
 
 mongoose.connection.once('open', () => {
 	console.log('MongoDB connection ready!');
