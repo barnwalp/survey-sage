@@ -1,19 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Counter from '../Counter/Counter';
 import questions from '../../model/questions';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
+import { addForms } from '../../redux/categorySlice';
 import { httpGetForms } from '../../request';
 
 const Cards = () => {
+	const dispatch = useDispatch();
+	const forms = useSelector(state => state.category.categories);
+	console.log('forms from useSelector');
+	console.log(forms);
 	const [questionData, setQuestionData] = useState(questions);
-	httpGetForms()
-		.then(data => {
-			console.log('data is: ');
-			console.log(data);
-		})
-		.catch(e => console.log(e));
+
+	useEffect(async() => {
+		const forms = await httpGetForms();
+		console.log('from useEffect');
+		console.log(forms);
+		dispatch(addForms(forms));
+	}, [])
 
 	// const handleSelectChange = (event, item) => {
 	// 	console.log(event.target.value);
