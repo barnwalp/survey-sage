@@ -2,24 +2,28 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Counter from '../Counter/Counter';
+import { httpGetForms } from '../../request';
 import questions from '../../model/questions';
+import { addForms } from '../../redux/categorySlice';
 import HeadingCard from '../HeadingCard/HeadingCard';
 import QuestionCard from '../QuestionCard/QuestionCard';
-import { addForms } from '../../redux/categorySlice';
-import { httpGetForms } from '../../request';
 
 const Cards = () => {
 	const dispatch = useDispatch();
 	const forms = useSelector(state => state.category.categories);
 	console.log('forms from useSelector');
 	console.log(forms);
+
 	const [questionData, setQuestionData] = useState(questions);
 
-	useEffect(async() => {
-		const forms = await httpGetForms();
-		console.log('from useEffect');
-		console.log(forms);
-		dispatch(addForms(forms));
+	useEffect(() => {
+		const fetchData = async() => {
+			const forms = await httpGetForms();
+			// console.log('from useEffect');
+			// console.log(forms);
+			dispatch(addForms(forms));
+		}
+		fetchData();
 	}, [])
 
 	// const handleSelectChange = (event, item) => {
@@ -54,7 +58,7 @@ const Cards = () => {
 		setQuestionData(nextQuestionData);
 	}
 
-	const questionCards = questionData.map(item => {
+	const questionCards = forms.map(item => {
 		return (
 			<QuestionCard
 				key={item.id}

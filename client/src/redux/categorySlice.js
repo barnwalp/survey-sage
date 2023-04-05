@@ -7,7 +7,9 @@ export const categorySlice = createSlice({
 	},
 	reducers: {
 		addForms: (state, action) => {
-			state = action.forms;
+			// console.log(action.payload);
+			state.categories = action.payload;
+			console.log(state);
 		},
 		handleDropdown: (state, event) => {
 			console.log(state.categories);
