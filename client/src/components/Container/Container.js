@@ -69,7 +69,7 @@ const Cards = () => {
 		)
 	})
 	return (
-		<div className="bg-lightBlue h-screen mt-4 p-4 flex flex-col items-center gap-4">
+		<div className="bg-hexagon min-h-screen mt-4 p-4 flex flex-col items-center gap-4">
 			<HeadingCard />
 			{questionCards}
 			<Counter />
