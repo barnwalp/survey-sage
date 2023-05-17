@@ -12,7 +12,7 @@ import Time from '../Time/Time';
 
 import { handleDropdown } from '../../redux/categorySlice';
 
-const QuestionCard = ({ selected, value, handleAnswerChange }) => {
+const QuestionCard = ({ key, selected, value, handleAnswerChange }) => {
 	const dispatch = useDispatch();
 	const [questionText, setQuestionText] = useState('Question');
 	const btnPreview = useSelector(state => state.preview.preview);
