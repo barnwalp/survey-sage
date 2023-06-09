@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+export interface PreviewProps {
+	preview: boolean;
+}
+
 export const previewSlice = createSlice({
 	name: 'preview',
 	initialState: {
 		preview: false,
 	},
 	reducers: {
-		togglePreview: (state) => {
+		togglePreview: (state: PreviewProps) => {
 			state.preview = !state.preview
 		}
 	}
