@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Checkbox from '../Checkbox/Checkbox';
 import Date from '../Date/Date';
@@ -9,13 +9,14 @@ import Multiple from '../Multiple/Multiple';
 import Paragraph from '../Paragraph/Paragraph';
 import Short from '../Short/Short';
 import Time from '../Time/Time';
+import { useAppSelector } from '../../redux/store';
 
 import { handleDropdown } from '../../redux/categorySlice';
 
 const QuestionCard = ({ key, selected, value, handleAnswerChange }) => {
 	const dispatch = useDispatch();
 	const [questionText, setQuestionText] = useState('Question');
-	const btnPreview = useSelector(state => state.preview.preview);
+	const btnPreview = useAppSelector(state => state.edit.preview);
 
 	let renderedElement = <h1>Test</h1>;
 

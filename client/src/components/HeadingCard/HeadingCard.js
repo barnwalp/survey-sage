@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { handleTitle } from '../../redux/titleSlice';
 
 const HeadingCard = () => {
-	const title = useSelector(state => state.title.title);
+	const title = useSelector(state => state.heading.title);
 	const dispatch = useDispatch();
 
 	return (

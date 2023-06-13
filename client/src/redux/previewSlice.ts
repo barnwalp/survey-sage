@@ -4,11 +4,13 @@ export interface PreviewProps {
 	preview: boolean;
 }
 
+const initialState: PreviewProps = {
+	preview: false,
+}
+
 export const previewSlice = createSlice({
-	name: 'preview',
-	initialState: {
-		preview: false,
-	},
+	name: 'edit',
+	initialState,
 	reducers: {
 		togglePreview: (state: PreviewProps) => {
 			state.preview = !state.preview

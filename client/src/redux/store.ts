@@ -10,7 +10,7 @@ export const store = configureStore({
 	reducer: {
 		counter: counterReducer,
 		heading: titleReducer,
-		preview: previewReducer,
+		edit: previewReducer,
 		category: categoryReducer,
 	}
 })

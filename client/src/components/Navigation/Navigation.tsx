@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import logo from '../../assets/logo.png';
-import { handleTitle, TitleProps } from '../../redux/titleSlice';
-import { togglePreview, PreviewProps } from '../../redux/previewSlice';
+import { handleTitle } from '../../redux/titleSlice';
+import { togglePreview } from '../../redux/previewSlice';
 import { useAppSelector } from '../../redux/store';
 
 import { GrUndo } from 'react-icons/gr';
@@ -15,8 +15,8 @@ import { AiOutlineEdit } from 'react-icons/ai';
 
 
 const Navigation = () => {
-	const btnPreview = useSelector((state: PreviewProps) => state.preview);
-	const title = useAppSelector(state => state.heading.title)
+	const btnPreview = useAppSelector(state => state.edit.preview);
+	const title = useAppSelector(state => state.heading.title);
 	const dispatch = useDispatch();
 
 

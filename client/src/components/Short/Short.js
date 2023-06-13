@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/store';
 
 const Short = ({ value, handleAnswerChange }) => {
-	const btnPreview = useSelector(state => state.preview.preview);
+	const btnPreview = useAppSelector(state => state.edit.preview);
 	
 	return (
 		<div className="ml-4 mt-2 flex flex-col items-start">
