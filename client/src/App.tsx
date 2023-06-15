@@ -7,5 +7,5 @@ export default function App() {
 			<Navigation />
 			<Container />
 		</div>
-  );
+	)
 }
