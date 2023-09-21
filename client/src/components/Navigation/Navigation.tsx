@@ -22,11 +22,14 @@ const Navigation = () => {
 
 	return (
 		<nav className="flex flex-col items-center">
+			<a href="#" className="text-3xl m-4">Survey Sage</a>
+			{/*}
 			<img 
 				className="w-64 p-4"
 				src={logo}
 				alt="logo"
 			/>
+			{*/}
 			<section className="flex gap-4 text-lg items-center">
 				<input 
 					className="text-2xl w-40 outline-0 focus:border-b-lightBlue focus:border-b"
