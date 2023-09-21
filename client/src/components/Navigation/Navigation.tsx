@@ -22,7 +22,7 @@ const Navigation = () => {
 
 	return (
 		<nav className="flex flex-col items-center">
-			<a href="#" className="text-3xl m-4">Survey Sage</a>
+			<a href="#" className="text-3xl m-4 text-pop">Survey Sage</a>
 			{/*}
 			<img 
 				className="w-64 p-4"
