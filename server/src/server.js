@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const formsRouter = require('./controllers/forms.router');
 const { forms } = require('./data/forms');
-const { readPassword } = require('./readFile');
+const { readPassword } = require('./readPassword');
 const { saveDataDb } = require('./models/forms.mongo');
 
 
